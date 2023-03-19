@@ -1,0 +1,19 @@
+CREATE OR REPLACE VIEW fms.breeds_prod
+(
+prod_date, breeds_nm, total_sum
+)
+AS
+SELECT
+a.prod_date,
+(
+SELECT m.code_desc "breeds_nm" FROM fms.master_code m
+WHERE m.column_nm = 'breeds' AND m.code = b.breeds
+),
+sum(a.raw_weight) "total_sum"
+FROM
+fms.prod_result a,
+fms.chick_info b
+WHERE
+a.chick_no = b.chick_no
+AND a.pass_fail = 'P'
+GROUP BY a.prod_date, b.breeds;

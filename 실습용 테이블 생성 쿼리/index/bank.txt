@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS public.bank
+(
+    client_no integer NOT NULL,
+    age smallint,
+    gender character(1),
+    edu character varying(13),
+    marital character varying(8),
+    card_type character varying(8),
+    CONSTRAINT bank_pkey PRIMARY KEY (client_no)
+);

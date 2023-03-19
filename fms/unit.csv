@@ -1,0 +1,10 @@
+﻿column_nm,unit
+egg_weight,g
+weight,g
+body_temp,℃
+breath_rate,cnt/min
+feed_intake,g/day
+temp,℃
+humid,%
+light_hr,hr/day
+lux,lx

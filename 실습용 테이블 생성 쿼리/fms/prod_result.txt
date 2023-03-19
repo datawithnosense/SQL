@@ -1,0 +1,39 @@
+CREATE TABLE IF NOT EXISTS fms.prod_result
+(
+    chick_no character(8) COLLATE pg_catalog."default" NOT NULL,
+    prod_date date NOT NULL,
+    raw_weight smallint NOT NULL,
+    disease_yn character(1) COLLATE pg_catalog."default" NOT NULL,
+    size_stand smallint NOT NULL,
+    pass_fail character(1) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT prod_result_chick_no_fkey FOREIGN KEY (chick_no)
+        REFERENCES fms.chick_info (chick_no) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS fms.prod_result
+    OWNER to postgres;
+
+COMMENT ON TABLE fms.prod_result
+    IS '생산실적';
+
+COMMENT ON COLUMN fms.prod_result.chick_no
+    IS '육계번호';
+
+COMMENT ON COLUMN fms.prod_result.prod_date
+    IS '생산일자';
+
+COMMENT ON COLUMN fms.prod_result.raw_weight
+    IS '생닭중량';
+
+COMMENT ON COLUMN fms.prod_result.disease_yn
+    IS '질병유무';
+
+COMMENT ON COLUMN fms.prod_result.size_stand
+    IS '호수';
+
+COMMENT ON COLUMN fms.prod_result.pass_fail
+    IS '적합여부';

@@ -1,0 +1,44 @@
+CREATE TABLE IF NOT EXISTS fms.chick_info
+(
+    chick_no character(8) COLLATE pg_catalog."default" NOT NULL,
+    breeds character(2) COLLATE pg_catalog."default" NOT NULL,
+    gender character(1) COLLATE pg_catalog."default" NOT NULL,
+    hatchday date NOT NULL,
+    egg_weight smallint NOT NULL,
+    vaccination1 smallint,
+    vaccination2 smallint,
+    farm character(1) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT chick_info_pkey PRIMARY KEY (chick_no)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS fms.chick_info
+    OWNER to postgres;
+
+COMMENT ON TABLE fms.chick_info
+    IS '육계정보';
+
+COMMENT ON COLUMN fms.chick_info.chick_no
+    IS '육계번호';
+
+COMMENT ON COLUMN fms.chick_info.breeds
+    IS '품종';
+
+COMMENT ON COLUMN fms.chick_info.gender
+    IS '성별';
+
+COMMENT ON COLUMN fms.chick_info.hatchday
+    IS '부화일자';
+
+COMMENT ON COLUMN fms.chick_info.egg_weight
+    IS '종란무게';
+
+COMMENT ON COLUMN fms.chick_info.vaccination1
+    IS '예방접종1';
+
+COMMENT ON COLUMN fms.chick_info.vaccination2
+    IS '예방접종2';
+
+COMMENT ON COLUMN fms.chick_info.farm
+    IS '사육장';

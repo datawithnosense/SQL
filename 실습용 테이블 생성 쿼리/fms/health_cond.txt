@@ -1,0 +1,47 @@
+CREATE TABLE IF NOT EXISTS fms.health_cond
+(
+    chick_no character(8) COLLATE pg_catalog."default" NOT NULL,
+    check_date date NOT NULL,
+    weight smallint NOT NULL,
+    body_temp numeric(3,1) NOT NULL,
+    breath_rate smallint NOT NULL,
+    feed_intake smallint NOT NULL,
+    diarrhea_yn character(1) COLLATE pg_catalog."default" NOT NULL,
+    note text COLLATE pg_catalog."default",
+    CONSTRAINT health_cond_chick_no_fkey FOREIGN KEY (chick_no)
+        REFERENCES fms.chick_info (chick_no) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS fms.health_cond
+    OWNER to postgres;
+
+COMMENT ON TABLE fms.health_cond
+    IS '건강상태';
+
+COMMENT ON COLUMN fms.health_cond.chick_no
+    IS '육계번호';
+
+COMMENT ON COLUMN fms.health_cond.check_date
+    IS '검사일자';
+
+COMMENT ON COLUMN fms.health_cond.weight
+    IS '체중';
+
+COMMENT ON COLUMN fms.health_cond.body_temp
+    IS '체온';
+
+COMMENT ON COLUMN fms.health_cond.breath_rate
+    IS '호흡수';
+
+COMMENT ON COLUMN fms.health_cond.feed_intake
+    IS '사료섭취량';
+
+COMMENT ON COLUMN fms.health_cond.diarrhea_yn
+    IS '설사여부';
+
+COMMENT ON COLUMN fms.health_cond.note
+    IS '노트';

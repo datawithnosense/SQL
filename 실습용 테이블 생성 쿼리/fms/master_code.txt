@@ -1,0 +1,27 @@
+CREATE TABLE IF NOT EXISTS fms.master_code
+(
+    column_nm character varying(15) COLLATE pg_catalog."default",
+    type character varying(10) COLLATE pg_catalog."default",
+    code character varying(10) COLLATE pg_catalog."default",
+    code_desc character varying(20) COLLATE pg_catalog."default"
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS fms.master_code
+    OWNER to postgres;
+
+COMMENT ON TABLE fms.master_code
+    IS '마스터코드';
+
+COMMENT ON COLUMN fms.master_code.column_nm
+    IS '열이름';
+
+COMMENT ON COLUMN fms.master_code.type
+    IS '타입';
+
+COMMENT ON COLUMN fms.master_code.code
+    IS '코드';
+
+COMMENT ON COLUMN fms.master_code.code_desc
+    IS '코드의미';

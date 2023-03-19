@@ -1,0 +1,16 @@
+CREATE OR REPLACE PROCEDURE fms.breeds_prod_proc(
+	)
+LANGUAGE 'sql'
+AS $BODY$
+INSERT INTO fms.breeds_prod_tbl(prod_date, breeds_nm, total_sum, save_time)
+(
+SELECT prod_date, breeds_nm, total_sum, current_timestamp AS save_time
+FROM fms.breeds_prod
+WHERE prod_date = '2023-01-31'
+);
+$BODY$;
+ALTER PROCEDURE fms.breeds_prod_proc()
+    OWNER TO postgres;
+
+COMMENT ON PROCEDURE fms.breeds_prod_proc()
+    IS '품종별생산실적 입력 프로시져';

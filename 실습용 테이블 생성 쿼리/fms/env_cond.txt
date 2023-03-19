@@ -1,0 +1,35 @@
+CREATE TABLE IF NOT EXISTS fms.env_cond
+(
+    farm character(1) COLLATE pg_catalog."default" NOT NULL,
+    date date NOT NULL,
+    temp smallint,
+    humid smallint,
+    light_hr smallint,
+    lux smallint
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS fms.env_cond
+    OWNER to postgres;
+
+COMMENT ON TABLE fms.env_cond
+    IS '사육환경';
+
+COMMENT ON COLUMN fms.env_cond.farm
+    IS '사육장';
+
+COMMENT ON COLUMN fms.env_cond.date
+    IS '일자';
+
+COMMENT ON COLUMN fms.env_cond.temp
+    IS '기온';
+
+COMMENT ON COLUMN fms.env_cond.humid
+    IS '습도';
+
+COMMENT ON COLUMN fms.env_cond.light_hr
+    IS '점등시간';
+
+COMMENT ON COLUMN fms.env_cond.lux
+    IS '조도';

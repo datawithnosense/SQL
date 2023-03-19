@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS fms.unit
+(
+    column_nm character varying(15) COLLATE pg_catalog."default",
+    unit character varying(10) COLLATE pg_catalog."default"
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS fms.unit
+    OWNER to postgres;
+
+COMMENT ON TABLE fms.unit
+    IS '단위';
+
+COMMENT ON COLUMN fms.unit.column_nm
+    IS '열이름';
+
+COMMENT ON COLUMN fms.unit.unit
+    IS '단위';
